@@ -1,13 +1,14 @@
 {{> header}}
     <h1>{{ site.name }}</h1>
 
-    <ul class="recent">
+    <div class="articles-list">
     {{#each articles }}
-      <li>
+      <div class="articles-list__item">
         <div class="title"><a href="{{ path }}">{{ title }}</a></div>
         <div class="date">{{ date }}</div>
-      </li>
+        <div class="content">{{ excerpt }}</div>
+      </div>
     {{/each}}
-    </ul>
+    </div>
 
 {{> footer }}

@@ -6,6 +6,8 @@ var collections = require('metalsmith-collections');
 var permalinks = require('metalsmith-permalinks');
 var serve = require('metalsmith-serve');
 var watch = require('metalsmith-watch');
+var sass = require('metalsmith-sass');
+var excerpts = require('metalsmith-excerpts');
 
 metalsmith(__dirname)
   .metadata({
@@ -23,11 +25,15 @@ metalsmith(__dirname)
       reverse: true
     },
   }))
+  .use(sass({
+    outputDir: 'css/'   // This changes the output dir to "build/css/" instead of "build/scss/" 
+  }))
   .use(markdown())
   .use(permalinks({
     relative: false,
     pattern: ':title',
   }))
+  .use(excerpts())
   .use(layouts({
     engine: 'handlebars',
     directory: './layouts',
