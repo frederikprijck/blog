@@ -2,9 +2,11 @@
   "name": "metalsmith-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "metalsmith.prod.js",
   "scripts": {
-    "start": "node"
+    "start": "build:dev",
+    "build:dev": "node metalsmith.dev.js",
+    "build:prod": "node metalsmith.prod.js"
   },
   "author": "Frederik Prijck",
   "license": "ISC",
