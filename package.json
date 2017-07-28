@@ -4,7 +4,7 @@
   "description": "",
   "main": "metalsmith.prod.js",
   "scripts": {
-    "start": "build:dev",
+    "start": "npm run build:dev",
     "build:dev": "node metalsmith.dev.js",
     "build:prod": "node metalsmith.prod.js"
   },

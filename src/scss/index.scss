@@ -1,5 +1,53 @@
 @import 'partials/variables';
+@import 'partials/articles';
 
 body {
     background-color: $background-color;
+    color: #818181;
+    line-height: 1.66667;
+}
+
+body {
+   font-family:  'Lato', Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.read-more {
+    margin-top: 40px;
+
+    .more-link {
+        background-color: #2b3a4c;
+        font-size: 12px;
+        letter-spacing: 1;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: bold;
+        padding: 8px 15px;
+        text-decoration: none;
+    }
+}
+
+.content-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.content__main {
+    width: 75%;
+    float: left;
+}
+
+.content__aside {
+    width: 21%;
+    float: left;
 }

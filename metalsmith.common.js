@@ -39,6 +39,7 @@ module.exports = metalsmith(__dirname)
     pattern: ["*/*/*html","*/*html","*html"],
     partials: {
       header: 'partials/header',
-      footer: 'partials/footer'
+      footer: 'partials/footer',
+      comments: 'partials/comments'
     }
   }));

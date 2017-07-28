@@ -1,14 +1,39 @@
 {{> header}}
     <h1>{{ site.name }}</h1>
-
-    <div class="articles-list">
-    {{#each articles }}
-      <div class="articles-list__item">
-        <div class="title"><a href="{{ path }}">{{ title }}</a></div>
-        <div class="date">{{ date }}</div>
-        <div class="content">{{{ excerpt }}}</div>
-      </div>
-    {{/each}}
+    <div class="content-wrapper">
+        <div class="content">
+            <main class="content__main">
+                <div class="entries">
+                    {{#each articles }}
+                        <article class="entry">
+                            <header class="entry__header">
+                                <div class="entry__header__title">
+                                    
+                                    <h2><a href="{{ path }}">{{ title }}</a></h2>
+                                </div><!-- .entry-header-wrap -->
+                                <div class="entry__header__meta">
+                                    by <span class="post-author">{{ author }}</span> on <time class="published" datetime="2017-01-18">{{ date }}</time>
+                                </div><!-- .entry-meta -->
+                            </header>
+                            <div class="entry__content">
+                                {{{ excerpt }}}
+                                <p class="read-more"><a href="{{ path }}" class="more-link" title="read more">read more</a></p>
+                            </div>
+                            <footer class="entry__footer">
+                                <div class="tag-links">
+                                    Tags: 
+                                    {{#each tags}}
+                                    <a rel="tag">{{ . }} </a>
+                                    {{/each}}
+                                </div>
+                            </footer>
+                        </article>
+                    {{/each}}
+                </div>
+            </main>
+            <aside class="content__aside">
+            </aside> 
+        </div>
     </div>
 
 {{> footer }}

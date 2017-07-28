@@ -2,6 +2,7 @@
 title: "Hello World"
 date: 2017-07-27
 blurb: An introduction to Metalsmith
+author: Frederik Prijck
 ---
 
 ## Welcome to Metalsmith

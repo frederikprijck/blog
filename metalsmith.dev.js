@@ -9,7 +9,7 @@ require('./metalsmith.common')
     .use(watch({
         paths: {
             "${source}/**/*": true,
-            "layout/**/*": "**/*",
+            "layouts/**/*": "**/*",
         }
     })).build(function (err) {
         if (err) {
