@@ -6,6 +6,8 @@ var collections = require('metalsmith-collections');
 var permalinks = require('metalsmith-permalinks');
 var sass = require('metalsmith-sass');
 var excerpts = require('metalsmith-excerpts');
+var assets = require('metalsmith-assets');
+const imagemin = require('metalsmith-imagemin');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -25,6 +27,13 @@ module.exports = metalsmith(__dirname)
   }))
   .use(sass({
     outputDir: 'css/'
+  }))
+  .use(assets({
+    source: './assets', // relative to the working directory 
+    destination: './' // relative to the build directory 
+  }))
+  .use(imagemin({
+    optimizationLevel: 3
   }))
   .use(markdown())
   .use(permalinks({

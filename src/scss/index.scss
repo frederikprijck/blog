@@ -113,6 +113,10 @@ html, body, .flex-wrapper{ height: 100%; }
     flex-direction: column; 
     justify-content: center;
     z-index: 1;
+
+    strong {
+        color: #b6d169;
+    }
 }
 
 .flex-footer{ 
