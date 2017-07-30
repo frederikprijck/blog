@@ -1,38 +1,20 @@
 {{> header}}
-    <h1>{{ site.name }}</h1>
-    <div class="content-wrapper">
+    <div class="content-wrapper content-wrapper--fullscreen" >
         <div class="content">
-            <main class="content__main">
-                <div class="entries">
-                    {{#each articles }}
-                        <article class="entry">
-                            <header class="entry__header">
-                                <div class="entry__header__title">
-                                    
-                                    <h2><a href="{{ path }}">{{ title }}</a></h2>
-                                </div><!-- .entry-header-wrap -->
-                                <div class="entry__header__meta">
-                                    by <span class="post-author">{{ author }}</span> on <time class="published" datetime="2017-01-18">{{ date }}</time>
-                                </div><!-- .entry-meta -->
-                            </header>
-                            <div class="entry__content">
-                                {{{ excerpt }}}
-                                <p class="read-more"><a href="{{ path }}" class="more-link" title="read more">read more</a></p>
-                            </div>
-                            <footer class="entry__footer">
-                                <div class="tag-links">
-                                    Tags: 
-                                    {{#each tags}}
-                                    <a rel="tag">{{ . }} </a>
-                                    {{/each}}
-                                </div>
-                            </footer>
-                        </article>
-                    {{/each}}
-                </div>
-            </main>
-            <aside class="content__aside">
-            </aside> 
+            <div>
+                <main class="content__main content__main--centered">
+                    <div class="typed-placeholder" style="white-space:pre; display:inline;"></div>
+                    <div class="social-icons">
+                        <i class="fa fa-rss fa-2x"></i>
+                        <i class="fa fa-github fa-2x"></i>
+                        <i class="fa fa-twitter fa-2x"></i>
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </div>
+                </main>
+            </div>
+            <footer class="content__footer">
+                <span>Made with <a href="http://www.metalsmith.io/" target="_blank">Metalsmith</a>, available on <a href="https://github.com/frederikprijck/blog" target="_blank">Github</a><span>
+            </footer> 
         </div>
     </div>
 

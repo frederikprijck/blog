@@ -24,7 +24,7 @@ module.exports = metalsmith(__dirname)
     },
   }))
   .use(sass({
-    outputDir: 'css/'   // This changes the output dir to "build/css/" instead of "build/scss/" 
+    outputDir: 'css/'
   }))
   .use(markdown())
   .use(permalinks({
@@ -40,6 +40,7 @@ module.exports = metalsmith(__dirname)
     partials: {
       header: 'partials/header',
       footer: 'partials/footer',
-      comments: 'partials/comments'
+      comments: 'partials/comments',
+      articles: 'partials/articles'
     }
   }));
