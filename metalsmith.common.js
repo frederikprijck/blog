@@ -1,15 +1,13 @@
-var metalsmith = require('metalsmith');
-var markdown = require('metalsmith-markdown');
-var layouts = require('metalsmith-layouts');
-var handlebars = require('handlebars');
-var collections = require('metalsmith-collections');
-var permalinks = require('metalsmith-permalinks');
-var sass = require('metalsmith-sass');
-var excerpts = require('metalsmith-excerpts');
-var assets = require('metalsmith-assets');
+const metalsmith = require('metalsmith');
+const markdown = require('metalsmith-markdown');
+const layouts = require('metalsmith-layouts');
+const handlebars = require('handlebars');
+const collections = require('metalsmith-collections');
+const permalinks = require('metalsmith-permalinks');
+const sass = require('metalsmith-sass');
+const excerpts = require('metalsmith-excerpts');
+const assets = require('metalsmith-assets');
 const imagemin = require('metalsmith-imagemin');
-
-const partials = require('./config/partials');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -35,7 +33,7 @@ module.exports = metalsmith(__dirname)
     destination: './' // relative to the build directory 
   }))
   .use(imagemin({
-    optimizationLevel: 3
+    optimizationLevel: 7
   }))
   .use(markdown())
   .use(permalinks({
