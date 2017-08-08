@@ -9,11 +9,13 @@ var excerpts = require('metalsmith-excerpts');
 var assets = require('metalsmith-assets');
 const imagemin = require('metalsmith-imagemin');
 
+const partials = require('./config/partials');
+
 module.exports = metalsmith(__dirname)
   .metadata({
     site: {
-      name: 'Metalsmith Blog',
-      description: "A metalsmith driven blog"
+      name: 'Frederik Prijck - Everything JavaScript',
+      description: "The personal blog of Frederik, a Belgian based JavaScript developer."
     }
   })
   .source('./src')
@@ -50,6 +52,7 @@ module.exports = metalsmith(__dirname)
       header: 'partials/header',
       footer: 'partials/footer',
       comments: 'partials/comments',
-      articles: 'partials/articles'
+      articles: 'partials/articles',
+      splash: 'partials/splash'
     }
   }));
