@@ -1,16 +1,19 @@
-{{> header }}
+{{> header}}
 
-    <header>
-        <a class="back-to-index" href="../index.html">&larr; Index</a>
-    </header>
-    <article>
-      <h1>{{ title }}</h1>
-      <div class="meta">
-          {{#if date}}Published: {{ date }}{{/if}}
+    <div class="blog-wrapper">
+      <div class="blog">
+        <header class="header">
+          <a href="/">Home</a>
+          <nav>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+          </nav>
+        </header>
+        <main>
+          <!-- todo: move to index.md -->
+          {{> article }}
+        </main>
       </div>
-      {{{ contents }}}
-
-      {{> comments }}
-    </article>
+    </div>
 
 {{> footer }}

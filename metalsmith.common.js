@@ -37,9 +37,7 @@ module.exports = metalsmith(__dirname)
     optimizationLevel: 7
   }))
   .use(markdown())
-  .use(prism({
-    lineNumbers: true
-  }))
+  .use(prism())
   .use(permalinks({
     relative: false,
     pattern: ':title',
@@ -55,6 +53,7 @@ module.exports = metalsmith(__dirname)
       footer: 'partials/footer',
       comments: 'partials/comments',
       articles: 'partials/articles',
+      article: 'partials/article',
       splash: 'partials/splash'
     }
   }));

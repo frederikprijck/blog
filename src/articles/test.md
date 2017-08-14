@@ -9,9 +9,49 @@ tags:
 
 ## Avoid global NPM packages
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus metus. Quisque turpis odio, lacinia a gravida non, facilisis quis libero. Mauris eu mi non turpis consectetur efficitur. Fusce ligula purus, sollicitudin sit amet euismod quis, pharetra non sapien. Aliquam eleifend ante id elit bibendum luctus. Cras ultricies dapibus iaculis. Morbi a augue a leo sollicitudin iaculis. Nulla malesuada dui urna, blandit aliquet libero auctor id. Fusce felis erat, rutrum sed est vitae, fringilla dapibus ligula. Curabitur consectetur ex in dapibus rhoncus.
+Despite the fact you're a frontend or backend developer, when working with JavaScript you're most likely making use of `npm`. If you have no idea what `npm` is, ensure to read (this article)[https://docs.npmjs.com/getting-started/what-is-npm].
 
-Phasellus vitae orci a mauris consectetur mattis eu vel leo. Fusce imperdiet scelerisque ex, non aliquet dolor. Curabitur varius volutpat leo, id varius lectus cursus eu. Mauris efficitur urna dolor, ac ultrices nulla tempus eu. Quisque sit amet nisl eu ipsum placerat vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat metus a eros mollis dignissim.
+A common approach these days is using npm modules such as `webpack`, `gulp`, `grunt`, `typescript`, `tslint`, `babel`, ...
+
+When using these tools, you may have found yourself in a situation where you're running `npm install -g webpack` (or any other npm module). If you did, this article is definatly a must read for you.
+
+Installing any `npm` module globally makes it available as a cli command and allows you to use the same version of that package for all of your projects. Sounds cool, doesn't it ? Well, it isn't cool at all. 
+Even tho I know alot of development teams who enforce a uniform dependency version among all projects this way, this is utterly incorrect and may (and probably will) result in odd behavior.
+
+Imagine you're working on multiple (opensource) projects, where project A makes use of `webpack 2.0.0` and project B uses `webpack 3.0.0`, which is incompatible with `2.0.0`. When you have no control over both dependencies, how would you handle situations like this when all you have is a single, globally installed version of `webpack` but you want to work on both projects simultaniously?
+
+Well, you can't.
+
+### The solution
+
+As the title of this post mentions, the solution to the above problem is to avoid globally installed NPM packages (which are part of your project) at all cost.
+
+#### What do I mean with: which are part of your project ?
+Some npm packages are perfectly fine to have installed globally, examples are tools such as`yeoman` which are not part of your project dependencies.
+
+Instead of installing `webpack` using `npm install -g webpack`, you run `npm install webpack --save-dev`. Running this command will add `webpack` to ur node_modules folder and make the CLI available from `node_modules/.bin` folder. Opening a CLi in the root of your project should allow you to run `node_modules/.bin/webpack` the same way you'd be running `webpack` from the CLI.
+
+#### Adding local dependencies to `npm scripts`
+
+Ofcourse it's no fun to constantly type `node_modules/.bin/webpack` instead of `webpack`. Npm scripts allow you to create aliases to npm commands, giving preference to local dependencies over global dependencies.
+
+```
+"scripts": {
+  "webpack": "webpack"
+}
+```
+
+Using the above configuration, we can run `npm run webpack`. Npm will first see if there's a locally installed `webpack` version inside `node_modules/.bin`. If there is, it's going to execute that one, if not it's going to look for a globally installed version.
+
+The cool stuff is, using npm scripts we can hide the actual build tools for the rest of our team by using general commands such as `build`, `start`, `test`.
+
+```
+"scripts": {
+  "build": "webpack",
+  "start": "webpack-dev-server",
+  "test": "karma start"
+}
+```
 
 <code class="language-css">p { color: red }</code>
 
@@ -22,9 +62,3 @@ Phasellus vitae orci a mauris consectetur mattis eu vel leo. Fusce imperdiet sce
   };
   </code>
 </pre>
-
-Sed sodales magna scelerisque, dignissim odio interdum, mattis urna. Ut rhoncus eleifend ex, id consequat est sodales non. Maecenas convallis enim nisl, eget faucibus orci pellentesque consectetur. Donec fringilla nunc ligula, ac ultricies lacus pharetra sed. Phasellus euismod luctus porttitor. Ut dapibus velit vel orci consectetur maximus. Pellentesque hendrerit posuere diam, sed efficitur purus eleifend finibus. Curabitur gravida erat sit amet lectus vestibulum, a porttitor leo ullamcorper. Aliquam ultrices congue dui, sed finibus ex ornare et. Sed dolor risus, sodales sit amet blandit vel, mollis id ligula. Nulla vulputate purus at sem mattis pellentesque.
-
-Praesent euismod, risus eget tempor ullamcorper, ligula libero bibendum lacus, sed laoreet justo justo at tellus. Ut laoreet dolor dui. Vestibulum sed venenatis sapien. Nam turpis magna, suscipit non leo a, fermentum dictum risus. Aliquam in consectetur ligula. Fusce in orci eget est venenatis tincidunt a et enim. Sed eu auctor dolor. Phasellus in finibus nulla. Vestibulum eu volutpat sapien. In semper, dolor scelerisque venenatis efficitur, augue metus ultricies nunc, ut convallis mi augue ut ipsum. Etiam sit amet lectus elementum, euismod turpis in, convallis quam. Praesent venenatis condimentum justo sit amet placerat.
-
-Nunc eu facilisis orci, laoreet auctor risus. Integer non diam sodales, elementum justo quis, mollis eros. Sed eget congue augue. Nam purus lorem, convallis et volutpat in, egestas a metus. Nunc aliquam volutpat ornare. Pellentesque mollis eu mauris at interdum. Suspendisse magna dolor, imperdiet laoreet sapien at, tempus commodo ex. Morbi tristique ipsum vel neque lobortis varius. Curabitur vitae neque vel metus mollis consequat eu in ipsum. Phasellus elit nisl, aliquam at suscipit et, tempus at quam. Quisque consequat metus at enim tempus dignissim. Mauris sed dui ut nibh tempor elementum. Maecenas vehicula nec ipsum vel fermentum. Quisque sit amet lectus purus. Suspendisse sed sapien fermentum, facilisis sapien at, viverra lorem. Aliquam nec erat risus.
