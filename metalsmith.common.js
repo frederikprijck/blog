@@ -8,6 +8,7 @@ const sass = require('metalsmith-sass');
 const excerpts = require('metalsmith-excerpts');
 const assets = require('metalsmith-assets');
 const imagemin = require('metalsmith-imagemin');
+const prism = require('metalsmith-prism');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -29,13 +30,16 @@ module.exports = metalsmith(__dirname)
     outputDir: 'css/'
   }))
   .use(assets({
-    source: './assets', // relative to the working directory 
-    destination: './' // relative to the build directory 
+    source: './assets',
+    destination: './' 
   }))
   .use(imagemin({
     optimizationLevel: 7
   }))
   .use(markdown())
+  .use(prism({
+    lineNumbers: true
+  }))
   .use(permalinks({
     relative: false,
     pattern: ':title',
