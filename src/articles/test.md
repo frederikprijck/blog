@@ -1,13 +1,11 @@
 ---
-title: "Test"
+title: "Avoid global NPM packages"
 date: 2017-08-14
 blurb: This is a test blog post
 author: Frederik Prijck
 tags:
   - test
 ---
-
-## Avoid global NPM packages
 
 Despite the fact you're a frontend or backend developer, when working with JavaScript you're most likely making use of `npm`. If you have no idea what `npm` is, ensure to read (this article)[https://docs.npmjs.com/getting-started/what-is-npm].
 
