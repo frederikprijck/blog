@@ -9,6 +9,8 @@ const excerpts = require('metalsmith-excerpts');
 const assets = require('metalsmith-assets');
 const imagemin = require('metalsmith-imagemin');
 const prism = require('metalsmith-prism');
+const dateFormatter = require('metalsmith-date-formatter');
+const timeToRead = require('./_plugins/time-to-read');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -36,6 +38,9 @@ module.exports = metalsmith(__dirname)
   .use(imagemin({
     optimizationLevel: 7
   }))
+  .use(timeToRead({
+    wordsPerMinute: 180
+  }))
   .use(markdown())
   .use(prism())
   .use(permalinks({
@@ -43,6 +48,7 @@ module.exports = metalsmith(__dirname)
     pattern: ':title',
   }))
   .use(excerpts())
+  .use(dateFormatter())
   .use(layouts({
     engine: 'handlebars',
     directory: './layouts',
