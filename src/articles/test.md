@@ -7,7 +7,7 @@ tags:
   - test
 ---
 
-Despite the fact you're a frontend or backend developer, when working with JavaScript you're most likely making use of `npm`. If you have no idea what `npm` is, ensure to read (this article)[https://docs.npmjs.com/getting-started/what-is-npm].
+Despite the fact you're a frontend or backend developer, when working with JavaScript you're most likely making use of `npm`. If you have no idea what `npm` is, ensure to read [this article](https://docs.npmjs.com/getting-started/what-is-npm]).
 
 A common approach these days is using npm modules such as `webpack`, `gulp`, `grunt`, `typescript`, `tslint`, `babel`, ...
 
@@ -50,13 +50,3 @@ The cool stuff is, using npm scripts we can hide the actual build tools for the 
   "test": "karma start"
 }
 ```
-
-<code class="language-css">p { color: red }</code>
-
-<pre>
-  <code class="language-javascript">
-  const someFunction = () => {
-    console.log('ok');
-  };
-  </code>
-</pre>

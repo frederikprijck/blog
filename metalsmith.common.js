@@ -39,9 +39,15 @@ module.exports = metalsmith(__dirname)
     optimizationLevel: 7
   }))
   .use(timeToRead({
-    wordsPerMinute: 180
+    wordsPerMinute: 180,
+    files: [
+      'articles/*.md'
+    ]
   }))
-  .use(markdown())
+  .use(markdown({
+    gfm: true,
+    smartypants: true
+  }))
   .use(prism())
   .use(permalinks({
     relative: false,
@@ -59,7 +65,6 @@ module.exports = metalsmith(__dirname)
       footer: 'partials/footer',
       comments: 'partials/comments',
       articles: 'partials/articles',
-      article: 'partials/article',
-      splash: 'partials/splash'
+      article: 'partials/article'
     }
   }));

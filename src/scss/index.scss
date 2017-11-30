@@ -1,16 +1,15 @@
 @import 'partials/variables';
 @import 'partials/articles';
-@import 'partials/splash';
 @import 'partials/general';
 @import 'partials/bootstrap-overrides';
 
 html, body { height: 100%; }
 
 body {
-    background-color: $background-color;
-    color: $text-color;
-    line-height: 1.66667;
-    margin: 0;
-    padding: 0;
-    font-family:  'Lato', Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.66667;
+  margin: 0;
+  padding: 0;
+  font-family:  'Lato', Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
