@@ -72,5 +72,9 @@
     font-weight: bold;
     padding: 8px 15px;
     text-decoration: none;
+
+    &:hover {
+      background-color: #ed4f50;
+    }
   }
 }
