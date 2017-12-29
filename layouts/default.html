@@ -1,20 +1,11 @@
 {{> header}}
-  <header class="header">
-    <div class="card">
-      <div class="card-body">
-        Frederik Prijck
-      </div>
-    </div>
-  </header>
+{{> navbar }}
 
-  <div class="blog-wrapper">
-    
-    <main>
-      <div class="container">
-        <!-- todo: move to index.md -->
-        {{> articles }}
-      </div>
-    </main>
-  </div>
+  <main class="content">
+    <div class="container">
+      <!-- todo: move to index.md -->
+      {{{ contents }}}
+    </div>
+  </main>
 
 {{> footer }}

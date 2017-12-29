@@ -5,12 +5,12 @@ const handlebars = require('handlebars');
 const collections = require('metalsmith-collections');
 const permalinks = require('metalsmith-permalinks');
 const sass = require('metalsmith-sass');
-const excerpts = require('metalsmith-excerpts');
 const assets = require('metalsmith-assets');
 const imagemin = require('metalsmith-imagemin');
 const prism = require('metalsmith-prism');
 const dateFormatter = require('metalsmith-date-formatter');
 const timeToRead = require('./_plugins/time-to-read');
+const excerpt = require('./_plugins/excerpt');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -53,7 +53,7 @@ module.exports = metalsmith(__dirname)
     relative: false,
     pattern: ':title',
   }))
-  .use(excerpts())
+  .use(excerpt())
   .use(dateFormatter())
   .use(layouts({
     engine: 'handlebars',
@@ -62,6 +62,7 @@ module.exports = metalsmith(__dirname)
     pattern: ["*/*/*html","*/*html","*html"],
     partials: {
       header: 'partials/header',
+      navbar: 'partials/navbar',
       footer: 'partials/footer',
       comments: 'partials/comments',
       articles: 'partials/articles',

@@ -1,7 +1,7 @@
 ---
-title: "Avoid global NPM packages"
+title: "Avoid global NPM packages 2"
 date: 2017-08-14
-blurb: This is a test blog post
+blurb: This is a test2 blog post
 author: Frederik Prijck
 tags:
   - test
