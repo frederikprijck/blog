@@ -5,7 +5,8 @@ cache:
   - node_modules
 branches:
   only:
-  - master
+    - master
+    - /^greenkeeper/.*$/
 notifications:
   email:
     on_failure: change
