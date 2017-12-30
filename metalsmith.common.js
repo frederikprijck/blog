@@ -65,8 +65,6 @@ module.exports = metalsmith(__dirname)
       header: 'partials/header',
       navbar: 'partials/navbar',
       footer: 'partials/footer',
-      comments: 'partials/comments',
-      articles: 'partials/articles',
-      article: 'partials/article'
+      comments: 'partials/comments'
     }
   }));

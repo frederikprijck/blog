@@ -3,8 +3,29 @@
 
   <main class="content">
     <div class="container">
-      <!-- todo: move to index.md -->
-      {{> article }}
+      <article class="article">
+          <header class="article__header">
+              <div class="article__header__title">
+                  <h2>{{ title }}</h2>
+              </div>
+              <div class="article__header__meta">
+                  <time class="published">{{ date }}</time> - {{ timeToRead }} read.
+              </div>
+          </header>
+          <main class="article__content">
+              {{{ contents }}}
+          </main>
+          <footer class="article__footer">
+              <div class="tag-links">
+                  Tags: 
+                  {{#each tags}}
+                  <a rel="tag">{{ . }} </a>
+                  {{/each}}
+              </div>
+      
+              {{> comments }}
+          </footer>
+      </article>
     </div>
   </main>
 

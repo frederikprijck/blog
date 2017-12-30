@@ -1,5 +1,5 @@
-var serve = require('metalsmith-serve');
-var watch = require('metalsmith-watch');
+const serve = require('metalsmith-serve');
+const watch = require('metalsmith-watch');
 
 require('./metalsmith.common')
     .use(serve({
