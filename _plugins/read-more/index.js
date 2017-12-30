@@ -19,7 +19,6 @@ function plugin(opts) {
         const contents = data.contents.toString('utf8');
         const index = contents.search(options.placeholder);
         if (index > -1) {
-          console.log(data);
           data.excerpt = [
             contents.substring(0, index),
             options.buttonFn(data)
