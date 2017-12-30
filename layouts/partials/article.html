@@ -1,16 +1,16 @@
-<article class="entry">
-    <header class="entry__header">
-        <div class="entry__header__title">
+<article class="article">
+    <header class="article__header">
+        <div class="article__header__title">
             <h2>{{ title }}</h2>
         </div><!-- .entry-header-wrap -->
-        <div class="entry__header__meta">
+        <div class="article__header__meta">
             <time class="published">{{ date }}</time> - {{ timeToRead }} read.
         </div><!-- .entry-meta -->
     </header>
-    <main class="entry__content">
+    <main class="article__content">
         {{{ contents }}}
     </main>
-    <footer class="entry__footer">
+    <footer class="article__footer">
         <div class="tag-links">
             Tags: 
             {{#each tags}}

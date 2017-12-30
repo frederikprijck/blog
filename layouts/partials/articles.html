@@ -1,19 +1,19 @@
 <div class="entries">
     {{#each articles }}
-        <article class="entry">
-            <header class="entry__header">
-                <div class="entry__header__title">
+        <article class="article">
+            <header class="article__header">
+                <div class="article__header__title">
                     
                     <h2><a href="{{ path }}">{{ title }}</a></h2>
-                </div><!-- .entry-header-wrap -->
-                <div class="entry__header__meta">
+                </div>
+                <div class="article__header__meta">
                     <time class="published" datetime="2017-01-18">{{ date }}</time>
-                </div><!-- .entry-meta -->
+                </div>
             </header>
-            <main class="entry__content">
+            <main class="article__content">
                 {{{ excerpt }}}
             </main>
-            <footer class="entry__footer">
+            <footer class="article__footer">
                 <div class="tag-links">
                     Tags: 
                     {{#each tags}}
