@@ -10,7 +10,7 @@ const imagemin = require('metalsmith-imagemin');
 const prism = require('metalsmith-prism');
 const dateFormatter = require('metalsmith-date-formatter');
 const timeToRead = require('./_plugins/time-to-read');
-const excerpt = require('./_plugins/excerpt');
+const readMore = require('./_plugins/read-more');
 
 module.exports = metalsmith(__dirname)
   .metadata({
@@ -45,6 +45,7 @@ module.exports = metalsmith(__dirname)
     ]
   }))
   .use(markdown({
+    langPrefix: 'language-',
     gfm: true,
     smartypants: true
   }))
@@ -53,7 +54,7 @@ module.exports = metalsmith(__dirname)
     relative: false,
     pattern: ':title',
   }))
-  .use(excerpt())
+  .use(readMore())
   .use(dateFormatter())
   .use(layouts({
     engine: 'handlebars',

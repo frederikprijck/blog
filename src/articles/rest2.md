@@ -33,7 +33,7 @@ Instead of installing `webpack` using `npm install -g webpack`, you run `npm ins
 
 Ofcourse it's no fun to constantly type `node_modules/.bin/webpack` instead of `webpack`. Npm scripts allow you to create aliases to npm commands, giving preference to local dependencies over global dependencies.
 
-```
+```json
 "scripts": {
   "webpack": "webpack"
 }
@@ -43,7 +43,7 @@ Using the above configuration, we can run `npm run webpack`. Npm will first see 
 
 The cool stuff is, using npm scripts we can hide the actual build tools for the rest of our team by using general commands such as `build`, `start`, `test`.
 
-```
+```json
 "scripts": {
   "build": "webpack",
   "start": "webpack-dev-server",
