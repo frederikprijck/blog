@@ -1,5 +1,5 @@
 ---
-layout: default.html
+layout: default.hbs
 ---
 
 This is a test post to see what happens
