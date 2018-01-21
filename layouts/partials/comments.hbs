@@ -3,11 +3,11 @@
 	<script>
 		var disqus_config = function () {
 			//this.page.url = '{{ path }}';
-			//this.page.identifier = '{{ path }}';
+			this.page.identifier = '{{ path }}';
 		};
 		(function() {
 			var d = document, s = d.createElement('script');
-			s.src = '//frederikprijck.disqus.com/embed.js';
+			s.src = '//frederik-prijck-blog.disqus.com/embed.js';
 			s.setAttribute('data-timestamp', +new Date());
 			(d.head || d.body).appendChild(s);
 		})();
