@@ -17,7 +17,7 @@ With this post, we will be building an Angular **interceptor** to add the access
 # Creating the initial project
 To create our initial Angular application we'll make use of `Angular CLI`, if you're not familiar with the CLI, have a look at the [documentation](https://cli.angular.io/).
 
-```
+```bash
 ng new angular-oauth-interceptor
 cd angular-oauth-interceptor
 ```
@@ -32,7 +32,7 @@ Creating a fake URL with mocky is as easy as adding a message to the body and cl
 
 For this request, I've added a very simple JSON to the body (but it doesn't really matter)
 
-```
+```json
 {
     "message": "hello world"
 }
@@ -47,7 +47,7 @@ Pressing the **Generate** button gives you an URL you can use to request the bod
 ## Add the HTTP call to Angular
 For the sake of simplicity, we'll be adding the HTTP call directly inside `app.component.ts`
 
-```
+```typescript
 export class AppComponent implements OnInit {
   title = 'app';
 
@@ -72,7 +72,7 @@ As the CLI, currently, [doesn't support generating an interceptor yet](https://g
 
 Add a new file to the `app` directory and name it `token.interceptor.ts` (you're free to name it the way you want, but I'll assume you named it `token.interceptor.ts`).
 
-```
+```typescript
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
@@ -97,7 +97,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
 As you can see, the interceptor is making use of a service called `TokenService`, which we don't have yet. Let's create that as well. You can either use the CLI or create it manually, just ensure the service get's added to the `AppModule`'s providers so that Angular can resolve it when injected into the Interceptor. Add a file named `token.service.ts` inside the `app` directory:
 
-```
+```typescript
 @Injectable()
 export class TokenService {
     getToken() {
@@ -110,7 +110,7 @@ export class TokenService {
 
 Before the Interceptor kicks in, it needs to be added to the providers array of your module (in this case `AppModule`).
 
-```
+```typescript
 {
   provide: HTTP_INTERCEPTORS,
   useClass: TokenInterceptor,
@@ -132,7 +132,7 @@ This is something the interceptor can handle for us, instead of adding the token
 Before we're able to integrate the token refresh process, we'll need to make the token retrieval compatible with an asynchronous API.
 This is as easy as wrapping the token with `Observable.of` and returning the `Observable` instead of the plain text value.
 
-```
+```typescript
 @Injectable()
 export class TokenService {
     getToken() {
@@ -144,7 +144,7 @@ export class TokenService {
 
 In order for our interceptor to work with this asynchronous API, we'll need to adapt it accordingly:
 
-```
+```typescript
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
@@ -180,7 +180,7 @@ Currently, our interceptor isn't really something we can use in a real-world app
 
 When using OAuth2, requesting a new `access token` is as easy as doing an HTTP call to a certain endpoint, providing a `refresh token` (and certain other things such as `grant_type` and `client_id`). However, how refresh tokens work is out of scope of this blog post so I assume you're familiar with how they work and I'll mock out most of that functionality using `mocky.io` for the sake of simplicity. The fake Http call for requesting a new access token is going to return the following JSON:
 
-```
+```json
 {
   "token": "test",
   "expiresInSeconds": 10
@@ -189,7 +189,7 @@ When using OAuth2, requesting a new `access token` is as easy as doing an HTTP c
 
 I'm going to extend the `TokenService` to include a method to request a new access token.
 
-```
+```typescript
 private refreshToken() {
     return (new Observable(observer => {
       const tokenEndpoint = 'http://www.mocky.io/v2/5a6347942e0000e90711d883';
@@ -225,7 +225,7 @@ As the `mocky.io` call doesn't really return an expiration date, I need to calcu
 
 There are several points where we can integrate the refresh token method, I'll add it to the `TokenService.getToken` method in such a way that our interceptor doesn't have to be modified.
 
-```
+```typescript
 getToken() {
     const accessToken = JSON.parse(localStorage.getItem('access_token'));
     return accessToken && this.isTokenValid(accessToken) ? 
@@ -247,7 +247,7 @@ Running the application now should result in an HTTP call to refresh the token, 
 
 When doing a second HTTP call after 7 seconds, the token isn't expired and there shouldn't be a call to the endpoint to request a new access token. If a call is done after 10 seconds, the token is expired and a new access token should be requested.
 
-```
+```typescript
 export class AppComponent implements OnInit {
   title = 'app';
 
@@ -282,7 +282,7 @@ We're almost there but we have an edge-case we haven't covered yet.
 
 Let's take the following `AppComponent`:
 
-```
+```typescript
 export class AppComponent implements OnInit {
   title = 'app';
 
@@ -311,7 +311,7 @@ Whenever an Http call results in a request for a new access token, we want to qu
 
 Even though this sounds extremely complicated, this can be fixed **very** easily thanks to `rxjs`:
 
-```
+```typescript
 refreshTokenMultiCast$ = this.refreshToken()
     .multicast(() => new ReplaySubject()).refCount();
 
