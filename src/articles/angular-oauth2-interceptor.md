@@ -38,7 +38,7 @@ For this request, I've added a very simple JSON to the body (but it doesn't real
 }
 ```
 
-Pressing the **Generate** button gives you an URL you can use to request the body you've provided (in my case, the URL is http://www.mocky.io/v2/5a6257c6310000b134de7f9b).
+Pressing the **Generate** button gives you an URL you can use to request the body you've provided.
 
 > Tip: You can use the endpoint mentioned above, you don't necessarily need to create your own post.
 
@@ -312,14 +312,14 @@ Whenever an Http call results in a request for a new access token, we want to qu
 Even though this sounds extremely complicated, this can be fixed **very** easily thanks to `rxjs`:
 
 ```typescript
-refreshTokenMultiCast$ = this.refreshToken()
-    .multicast(() => new ReplaySubject()).refCount();
+refreshTokenShared$ = this.refreshToken()
+    .share();
 
 getToken() {
     const accessToken = JSON.parse(localStorage.getItem('access_token'));
     return accessToken && this.isTokenValid(accessToken) ? 
         Observable.of(accessToken) :
-        this.refreshTokenMultiCast$;
+        this.refreshTokenShared$;
 }
 ```
 
