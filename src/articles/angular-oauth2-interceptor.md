@@ -137,7 +137,7 @@ This is as easy as wrapping the token with `Observable.of` and returning the `Ob
 export class TokenService {
     getToken() {
         const accessToken = JSON.parse(localStorage.getItem('access_token'));
-        return Observable.of(accessToken);
+        return of(accessToken);
     }
 }
 ```
@@ -229,7 +229,7 @@ There are several points where we can integrate the refresh token method, I'll a
 getToken() {
     const accessToken = JSON.parse(localStorage.getItem('access_token'));
     return accessToken && this.isTokenValid(accessToken) ? 
-        Observable.of(accessToken) :
+        of(accessToken) :
         this.refreshToken();
 }
 
@@ -312,8 +312,7 @@ Whenever an Http call results in a request for a new access token, we want to qu
 Even though this sounds extremely complicated, this can be fixed **very** easily thanks to `rxjs`:
 
 ```typescript
-refreshTokenShared$ = this.refreshToken()
-    .share();
+refreshTokenShared$ = this.refreshToken().pipe(share());
 
 getToken() {
     const accessToken = JSON.parse(localStorage.getItem('access_token'));
@@ -322,5 +321,8 @@ getToken() {
         this.refreshTokenShared$;
 }
 ```
+
+All we had to do was add the `share` operator to the refreshToken observable.
+> **Share:** Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream hot.
 
 [TODO: EXPLAIN MULTICAST FIX]
