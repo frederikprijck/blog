@@ -11,22 +11,22 @@ notifications:
   email:
     on_failure: change
 node_js:
-- '8'
+  - '8'
 before_install:
-- export CHROME_BIN=chromium-browser
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- npm i -g npm
-- npm install
-- npm install -g greenkeeper-lockfile@1
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm i -g npm
+  - npm install
+  - npm install -g greenkeeper-lockfile@1
 before_script:
-- npm prune
-- greenkeeper-lockfile-update
+  - npm prune
+  - greenkeeper-lockfile-update
 script:
-- npm run build:prd
+  - npm run build:prd
 after_script: greenkeeper-lockfile-upload
 after_success:
-    "curl --ftp-create-dirs -T public -u $ftp_user:$ftp_pass $ftp_host"
+  - curl --ftp-create-dirs -T public -u ftp_user:ftp_pass ftp_host
 env:
   global:
     secure: pQOwrhtMab8/eRcwvaB7gIgy9mQiFHpUPgmVqv2WPHaejMrvVlduGBamGGsynPkG7cdBZxjjPxD44uF72bwZV9Sb204Y2H4ZRvjxB1gIhECpZY6eGqF34T7xqsmPoh4UH+jp3ReMvbOoaCiOLoKZ3pe0PS9LplQPBzkC/+ojiQvTaMt042MTphpUrSokN3NjxjcpyAhuCtUKUACQy4GCoLyFFha02yJjhXYIsy77Km3v8/6u+vD0IScluIk5tfaFiX5C7LKbw0fRoy3vt+PPrs3yTUYMUHmY0fU9nq23GO5tT9GMUGB59DYmsQG0fEqbhk7Yl6yA9mPzVrWdrHF+d3cFrAX7Y4g3jRiI4suO7+P7gqwPkvIzPUUZeHNVxd9CIJXjMP7ytZsgbqPSOnumW+CSaAyCWJklXM0XJ6U0pOMvV6oisuZlzaQsdw30QbUZmdn4QB5y8YbpUukGlHR3dhC0yXpOu7PhMcJ4nJ3m7tEl18lkyBt+iMsRzp0oWqc/9AKj+eUrJybmMGEz2DA7mlBIq/A3eP534HaJaJgwoh1oYlX47twW6MInKQtnox9LZpgg9sTT/3QI79Vek0lZJjj9MV652HrvzmhXsjpMEdclqms2MhlvW+m1RzxxOM/TA0R9FojAMGCEqZFTBkIVlF37PnAjtw3i+6FHZ+i8XPc=
