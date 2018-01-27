@@ -4,19 +4,18 @@ const defaultOpts = {
   wordsPerMinute: 180
 };
 
-function calculateTime(contents, wordsPerMinute) {
-  const words = contents.split(' ').length;
-  return Math.floor(words / wordsPerMinute);
-}
-
 function plugin(opts) {
   const options = Object.assign({}, defaultOpts, opts);
 
+  function calculateTime(contents, wordsPerMinute) {
+    const words = contents.split(' ').length;
+    return Math.floor(words / wordsPerMinute);
+  }
   return (files, metalsmith, done) => {
     setImmediate(done);
-    
+
     Object.keys(files)
-      .filter(key => /(articles\/)(.+)(\.md)/g.test(key))
+      .filter(key => /(articles)(.+)(\.md)/g.test(key))
       .map(key => files[key])
       .forEach(data => {
         const contents = data.contents.toString('utf8');
