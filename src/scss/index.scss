@@ -1,15 +1,4 @@
-@import 'partials/variables';
-@import 'partials/articles';
-@import 'partials/footer';
-@import 'partials/navbar';
-@import 'partials/general';
-@import 'partials/bootstrap-overrides';
-
-body {
-  background-color: $background-color;
-  color: $text-color;
-  line-height: 1.66667;
-  margin: 0;
-  padding: 0;
-  font-family:  'Lato', Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+@import "settings/settings";
+@import 'base/base';
+@import 'utilities/bootstrap-overrides';
+@import "components/components";

@@ -2,7 +2,7 @@ module.exports = plugin;
 
 const defaultOpts = {
   placeholder: /<!--[ ]?read-more[ ]?-->/,
-  buttonFn: file => `<p class="read-more"><a href="${file.path}" class="more-link" title="read more">read more</a></p>`
+  buttonFn: file => `<p class="read-more"><a href="${file.path}" class="a-button a-button--primary" title="read more">read more</a></p>`
 }
 
 function plugin(opts) {

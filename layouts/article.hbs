@@ -3,23 +3,23 @@
 
   <main class="content">
     <div class="container">
-      <article class="article">
-          <header class="article__header">
-              <div class="article__header__title">
+      <article class="o-article">
+          <header class="o-article__header">
+              <div class="o-article__header__title">
                   <h2>{{ title }}</h2>
               </div>
-              <div class="article__header__meta">
+              <div class="o-article__header__meta">
                   <time class="published">{{ date }}</time> - {{ timeToRead }} read.
               </div>
           </header>
-          <main class="article__content">
+          <main class="o-article__content">
               {{{ contents }}}
           </main>
-          <footer class="article__footer">
+          <footer class="o-article__footer">
               <div class="tag-links">
                   Tags: 
                   {{#each tags}}
-                  <a rel="tag">{{ . }} </a>
+                  <a rel="tag" class="a-badge">{{ . }} </a>
                   {{/each}}
               </div>
       
