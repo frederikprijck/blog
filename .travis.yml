@@ -18,13 +18,13 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm i -g npm
-  - npm install
+  - npm i -g yarn
   - npm install -g greenkeeper-lockfile@1
+  - yarn install
 before_script:
-  - npm prune
   - greenkeeper-lockfile-update
 script:
-  - npm run build:prd
+  - yarn build:prd
 after_script: greenkeeper-lockfile-upload
 after_success:
   - curl --ftp-create-dirs -T public -u ftp_user:ftp_pass ftp_host
