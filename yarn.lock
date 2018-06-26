@@ -3015,6 +3015,10 @@ metalsmith-discover-partials@^0.1.0:
     fs-tools "^0.2.11"
     handlebars "*"
 
+metalsmith-drafts@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/metalsmith-drafts/-/metalsmith-drafts-0.0.1.tgz#727858ba266934a37a287013beca9b6033272f77"
+
 metalsmith-filenames@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/metalsmith-filenames/-/metalsmith-filenames-1.0.0.tgz#df4e69f246b8325bb9189e0273d2ee70899d00de"
