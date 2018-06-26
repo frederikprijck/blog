@@ -1,21 +1,6 @@
-const serve = require('metalsmith-serve');
-const watch = require('metalsmith-watch');
+const bootstrap = require('./config/bootstrap');
+const app = require('./metalsmith.common');
 
-require('./metalsmith.common')
-    .use(serve({
-        port: 8081,
-        verbose: true
-    }))
-    .use(watch({
-        paths: {
-            "${source}/**/*": true,
-            "layouts/**/*": "**/*",
-        }
-    })).build(function (err) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            console.log('Blog built!');
-        }
-    });
+bootstrap(app, true).build((err) => {
+    err ? console.log(err) : console.log('Blog built!');
+});
