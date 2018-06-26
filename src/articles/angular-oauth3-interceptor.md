@@ -1,13 +1,13 @@
 ---
-title: "Angular OAuth2 Interceptor"
+title: "Angular OAuth3 Interceptor"
 date: 2018-01-21
-blurb: Angular OAuth2 Interceptor
+blurb: Angular OAuth3 Interceptor
 author: Frederik Prijck
 tags:
   - angular
   - authentication
   - jwt
-draft: false
+draft: true
 ---
 
 When using OAuth2, you'll probably make use of `access tokens` and `refresh tokens`.

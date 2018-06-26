@@ -1,3 +1,4 @@
+const drafts = require('./plugins/drafts');
 const collections = require('./plugins/collections');
 const sass = require('./plugins/sass');
 const assets = require('./plugins/assets');
@@ -14,6 +15,7 @@ const serve = require('./plugins/dev/serve');
 const watch = require('./plugins/dev/watch');
 
 const plugins = [
+    drafts,
     collections,
     sass,
     assets,
