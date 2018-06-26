@@ -30,7 +30,28 @@
   </main>
 
   <div class="m-floating-menu">
-      Test
+      <div class="m-circle-icon">
+        <i class="fa fa-twitter"></i>
+        <span>Share</span>
+      </div>
+      <div class="m-circle-icon m-circle-icon--large m-circle-icon--secondary">
+        <i class="fa fa-thumbs-up"></i>
+        <span>Like</span>
+        <span>Liked</span>
+      </div>
+      
   </div>
+
+  <script>
+      function handler() {
+          if (this.classList.contains('selected')) {
+            this.classList.remove('selected');
+          } else {
+            this.classList.add('selected');
+          }
+      }
+      document.querySelectorAll('.m-floating-menu .m-circle-icon i')[0].addEventListener('click', handler);
+      document.querySelectorAll('.m-floating-menu .m-circle-icon i')[1].addEventListener('click', handler);
+  </script>
 
 {{> footer }}
