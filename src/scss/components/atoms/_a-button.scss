@@ -5,6 +5,8 @@
     font-weight: bold;
     text-decoration: none !important;
     text-transform: uppercase;
+    border: none;
+    cursor: pointer;
 
     &.a-button--primary {
         background-color: $secondary-color;
