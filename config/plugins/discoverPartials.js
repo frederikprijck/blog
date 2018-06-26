@@ -1,6 +1,6 @@
 const discoverPartials = require('metalsmith-discover-partials');
 
 module.exports = discoverPartials({
-    directory: './layouts/partials',
+    directory: './_layouts/partials',
     pattern: /\.hbs/
 });
