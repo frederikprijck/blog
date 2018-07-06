@@ -11,6 +11,7 @@ const readMore = require('./plugins/readMore');
 const dateFormatter = require('./plugins/dateFormatter');
 const discoverPartials = require('./plugins/discoverPartials');
 const layouts = require('./plugins/layouts');
+const tags = require('./plugins/tags');
 const serve = require('./plugins/dev/serve');
 const watch = require('./plugins/dev/watch');
 
@@ -26,6 +27,7 @@ const plugins = [
     permalinks,
     readMore,
     dateFormatter,
+    tags,
     discoverPartials,
     layouts
 ];
