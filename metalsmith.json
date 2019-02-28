@@ -1,0 +1,65 @@
+{
+    "source": "./src",
+    "destination": "./public",
+    "metadata": {
+        "site": {
+            "name": "Frederik Prijck - Everything JavaScript",
+            "description": "The personal blog of Frederik, a Belgian based full-stack developer."
+        }
+    },
+    "plugins": {
+      "metalsmith-drafts": {},
+      "metalsmith-collections": {
+        "articles": {
+            "pattern": "articles/**/*.md",
+            "sortBy": "date",
+            "reverse": true
+        }
+      },
+      "metalsmith-sass": {
+        "outputDir": "css/"
+      },
+      "metalsmith-assets": {
+        "source": "./_assets",
+        "destination": "./" 
+      },
+      "metalsmith-imagemin": {
+        "optimizationLevel": 7
+      },
+      "_plugins/time-to-read": {
+        "wordsPerMinute": 180,
+        "files": [
+            "articles/*.md"
+        ]
+      },
+      "metalsmith-markdown": {
+        "langPrefix": "language-",
+        "gfm": true,
+        "smartypants": true
+      },
+      "metalsmith-prism": {},
+      "metalsmith-permalinks": {
+        "relative": false,
+        "pattern": ":title"
+      },
+      "_plugins/read-more": {},
+      "metalsmith-date-formatter": {},
+      "metalsmith-tags": {
+        "handle": "tags",
+        "path": "tags/:tag/index.html",
+        "layout": "tags.hbs",
+        "sortBy": "date",
+        "reverse": true,
+        "slug": {"mode": "rfc3986"}
+      },
+      "metalsmith-discover-partials": {
+        "directory": "./_layouts/partials",
+        "pattern": "\\.hbs$"
+      },
+      "metalsmith-layouts": {
+        "directory": "./_layouts",
+        "default": "article.hbs",
+        "pattern": ["*/*/*html","*/*html","*html"]
+      }
+    }
+  }

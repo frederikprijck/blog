@@ -5,8 +5,8 @@
   "main": "metalsmith.prod.js",
   "scripts": {
     "start": "npm run build:dev",
-    "build:dev": "node metalsmith.dev.js",
-    "build:prd": "node metalsmith.prod.js"
+    "build": "metalsmith",
+    "build:dev": "metalsmith --config metalsmith-dev.json"
   },
   "author": "Frederik Prijck",
   "license": "ISC",
