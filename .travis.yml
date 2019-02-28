@@ -24,7 +24,7 @@ before_install:
 before_script:
   - greenkeeper-lockfile-update
 script:
-  - yarn build:prd
+  - yarn build
 after_script: greenkeeper-lockfile-upload
 after_success:
   - curl --ftp-create-dirs -T public -u ftp_user:ftp_pass ftp_host
