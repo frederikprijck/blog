@@ -31,12 +31,6 @@ export default class Post extends React.Component {
         </header>
         <main class="o-article__content">
           <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
-
-          <p class="read-more">
-            <a href="angular-oauth2-interceptor" class="a-button a-button--primary" title="read more">
-              read more
-            </a>
-          </p>
         </main>
         <footer class="o-article__footer">
             <div class="tag-links">

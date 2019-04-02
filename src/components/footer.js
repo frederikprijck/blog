@@ -20,14 +20,14 @@ const Footer = ({ copyright }) => (
         style={{
           display: 'flex'
         }}>
-        <a href="https://twitter.com/frederikprijck"
+        <a href="https://twitter.com/frederikprijck" aria-label="Open Frederik's Twitter profile"
           style={{
             display: 'flex',
             alignItems: 'center'
           }}>
           <FaTwitter />
         </a>
-        <a href="https://github.com/frederikprijck"
+        <a href="https://github.com/frederikprijck" aria-label="Open Frederik's Github profile"
           style={{
             display: 'flex',
             alignItems: 'center'

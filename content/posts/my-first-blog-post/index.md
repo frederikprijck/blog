@@ -10,7 +10,7 @@ tags: ["animals", "Chicago", "zoos"]
 When using OAuth2, you'll probably make use of `access tokens` and `refresh tokens`.
 With this post, we will be building an Angular **interceptor** to add the access token to the `Authorization` header and automatically request a new access_token once it is expired.
 
-> Note: This post assumes you're familiar with OAuth2, if not make sure to read more about it [here](https://oauth.net/2/). Most of the OAuth2 stuff has been mocked, so you do need to understand how all of that works.
+> Note: This post assumes you're familiar with OAuth2, if not make sure to read more about it [at the OAuth site](https://oauth.net/2/). Most of the OAuth2 stuff has been mocked, so you do need to understand how all of that works.
 
 # Creating the initial project
 To create our initial Angular application we'll make use of `Angular CLI`, if you're not familiar with the CLI, have a look at the [documentation](https://cli.angular.io/).
