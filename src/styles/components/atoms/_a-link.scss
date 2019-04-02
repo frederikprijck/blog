@@ -1,0 +1,8 @@
+.a-link {
+    padding: 8px 15px;
+
+    &:hover {
+        background-color: $secondary-color;
+        color: #fff;
+    }
+}
