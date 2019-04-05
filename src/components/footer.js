@@ -4,8 +4,8 @@ import { FaTwitter } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 
 const Footer = ({ copyright }) => (
-  <footer class="o-footer">
-    <div class="container"
+  <footer className="o-footer">
+    <div className="container"
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -13,7 +13,7 @@ const Footer = ({ copyright }) => (
         justifyContent: 'space-between'
       }}
     >
-      <div class="copyright">
+      <div className="copyright">
         {copyright}
       </div>
       <div

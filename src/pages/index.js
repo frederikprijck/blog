@@ -1,8 +1,8 @@
 import React from "react"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Posts from "../components/posts"
+import { graphql } from 'gatsby'
 
 export default class Index extends React.Component {
   render() {

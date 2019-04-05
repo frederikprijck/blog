@@ -8,7 +8,7 @@ export default class Tags extends React.Component {
       tags
     } = this.props;
     
-    const Tags = (tags || []).map(tag => <Tag tag={tag} />)
+    const Tags = (tags || []).map(tag => <Tag key={tag} tag={tag} />)
 
     return (
       Tags

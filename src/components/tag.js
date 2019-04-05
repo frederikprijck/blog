@@ -8,7 +8,7 @@ export default class Tag extends React.Component {
     } = this.props;
     
     return (
-      <a href="/tags/foo" rel="tag" class="a-badge">{tag}</a>
+      <a href="/tags/foo" rel="tag" className="a-badge">{tag}</a>
     )
   }
 }

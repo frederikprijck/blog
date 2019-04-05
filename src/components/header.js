@@ -12,7 +12,7 @@ const Header = ({ siteTitle }) => (
       top: 0
     }}
   >
-    <div class="container"
+    <div className="container"
       style={{
         padding: `1.10rem 1.0875rem`,
       }}
