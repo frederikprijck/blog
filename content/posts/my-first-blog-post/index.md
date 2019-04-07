@@ -7,25 +7,16 @@ image: ''
 tags: ["accessibility", "css"]
 ---
 
----
-path: "/blog/my-first-post"
-title: "My first blog post "
-description: This post is related to the gatsbyjs
-date: '2018-09-26'
-image: ''
-tags: ["accessibility", "css"]
----
-
 As my girlfriend is a UX Designer, we often find ourself talking about technical things during the evening.
-Recently, we were discussing Accessibility and how one could guarantee the tab order without (over)using the `tabindex` attribute.
+Recently, we were discussing accessibility and how one could guarantee the tab order without (over)using the `tabindex` attribute.
 
-I mean, `tabindex` can be useful, but I've seen people make use of it in situations that have no need for it. I'd probably even recommend trying to avoid them unless you really see no other way (and it's fine to use them if you know you need it).
+I mean, `tabindex` can be useful, but I've seen people make use of it in situations that have no need for it. I'd probably even argue to avoid them unless you really see no other way (and it's fine to use them if you know you need it).
 
 With this article, I hope to show you how you can control the tab order (and ensure it makes sense for everyone) without explicitly using tabindex.
 
 Before continuing, let's take a look at our requirements:
 
-> Create a form with a single field that has two buttons below it: Cancel and Submit.
+> Create a form with a single input field that has two buttons below it: Cancel and Submit.
 > The cancel button should go on the left side, while the submit button should be positioned at the right side of the screen. Both below the input.
 
 This doesn't sound hard and should be easily doable using the following markup:
